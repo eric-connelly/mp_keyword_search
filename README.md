@@ -30,11 +30,18 @@ The software uses the Mountain Project API to search for the routes fitting your
    - minimum difficulty of route
    - maximum difficulty of route
    - query
-2. Run `./run.sh` in order to pull the relevant data from Mountain Project, create the inverted index, and search for your query. Simple results are immediately output to the terminal, with more detailed results in `results.txt`.
+2. Run `./run.sh` in order to pull the relevant data from Mountain Project, create the inverted index, and search for your query. Simple results are immediately output to the terminal, with more detailed results (route name, grade, length, and URL) in `results.txt`. 
 3. If you would like to keep all of the parameters the same and search the same set of climbs using a different query, you can simply run
 ```
 python rank.py "your query"
 ```
 
+## Implementation
+Here's a quick outline of how the software works:
+
+User-specified parameters are passed to `make_corpus.py`. This script creates a `puller` object, which uses Mountain Project API's `get-routes-for-lat-lon` function via urllib.request to get a JSON file containing the the routes matching the user's parameters. The `puller` object reads the JSON as a dictionary and returns it. `make_corpus.py` then restructures the dictionary and writes it to file. Using Beautiful Soup 4, the webpage for each climb is scraped, writing the relevant information (route description and comments) to a single line in the corpus file. The user query is passed to `rank.py`, which builds an inverted index for the corpus and ranks the documents in the corpus using BM25. Results are wtitten to `results.txt`.
+
 ## Known Issues/Future Work
 The process of finding climbs and scraping the webpage for each climb is very slow. Every time a user wants to change a parameter, the finding and scraping process must be redone and the inverted index rebuilt. This results in a lot of wasted time. In future versions, the entirety of Mountain Project will be scraped ahead of time and the API's search feature rebuilt in this software. This will allow the inverted index to be prebuilt, saving the user both time and the need to have their own private key to use the Mountain Project API.
+
+A more visually appealing interface could be implemented down the road, along with "sort by" features.
