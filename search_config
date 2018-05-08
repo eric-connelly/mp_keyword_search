@@ -1,0 +1,31 @@
+#### Specify parameters in this file ####
+
+# Your Mountain Project private key, found at mountainproject.com/data
+# NOTE: Make sure you delete your private key before comitting!
+key=""
+
+# Latitude and Longitude you want to be searched, in decimal format
+latitude=37.507740
+longitude=-88.682310
+
+# Maximum distance (in miles) from given coordinates to search
+maxDistance=30
+
+# Maximum number of climbs to query. Maximum possible is 500.
+maxResults=500
+
+# Minimum and maximum difficulty of climbs. Grades go (from easiest to hardest)
+# from 5.0 to 5.15. In addition, grades 5.10-5.15 can subdivided from a-d 
+# (5.12c, for example).
+minDifficulty="5.5"
+maxDifficulty="5.14a"
+
+# Query you'd like to search for
+query="pumpy crux"
+
+# Climbing has a lot of specific jargon, so here are some sample queries:
+#    "technical"
+#    "crimpy"
+#    "overhang"
+#    "face climb"
+#    "run out"
