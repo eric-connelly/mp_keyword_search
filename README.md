@@ -1,4 +1,5 @@
 # Mountain Project Keyword Search
+**NOTE: The [Mountain Project Data API](https://www.mountainproject.com/data) is deprecated and is no longer available. This respository is for archival purposes only.**
 
 ## Motivation
 Mountain Project is a website used by rock climbers to document climbing routes around the world. Mountain project already has search functionality, allowing a user to search routes by location, type, difficulty, user rating, and number of pitches (see www.mountainproject.com/route-guide). What the route finder lacks, however, is the ability to search by keyword. This project implements a basic keyword search over Moutain Project climbs.
